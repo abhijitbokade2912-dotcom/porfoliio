@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abhijeet Bokade | Portfolio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Devicon -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <style>
+
+        /* ==============================
+           RESET
+        ============================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* ==============================
+           BACKGROUND STARS
+        ============================== */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: .5;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        .star:nth-child(1)  { left: 5%;  top: 12%; }
+        .star:nth-child(2)  { left: 15%; top: 70%; }
+        .star:nth-child(3)  { left: 25%; top: 25%; }
+        .star:nth-child(4)  { left: 35%; top: 80%; }
+        .star:nth-child(5)  { left: 45%; top: 15%; }
+        .star:nth-child(6)  { left: 55%; top: 60%; }
+        .star:nth-child(7)  { left: 65%; top: 30%; }
+        .star:nth-child(8)  { left: 75%; top: 75%; }
+        .star:nth-child(9)  { left: 85%; top: 18%; }
+        .star:nth-child(10) { left: 95%; top: 55%; }
+        .star:nth-child(11) { left: 12%; top: 42%; }
+        .star:nth-child(12) { left: 42%; top: 48%; }
+        .star:nth-child(13) { left: 72%; top: 10%; }
+        .star:nth-child(14) { left: 88%; top: 85%; }
+        .star:nth-child(15) { left: 30%; top: 92%; }
+
+        @keyframes twinkle {
+            from {
+                opacity: .2;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+
+        /* ==============================
+           SHOOTING STAR
+        ============================== */
+
+        .shooting-star {
+            position: fixed;
+            width: 130px;
+            height: 2px;
+            left: -150px;
+            top: 15%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #ffffff,
+                #ff6a00
+            );
+            transform: rotate(-25deg);
+            opacity: 0;
+            z-index: -2;
+        }
+
+        .shooting-star.active {
+            animation: shooting 1.4s linear;
+        }
+
+        @keyframes shooting {
+            0% {
+                left: -150px;
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                left: 110%;
+                opacity: 0;
+            }
+        }
+
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            height: 80px;
+            margin: auto;
+            padding: 0 35px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #ff6a00;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #aaa;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6a00;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            width: 100%;
+            max-width: 1100px;
+            height: 700px;
+            margin: auto;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 30%,
+                    rgba(255, 106, 0, .18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #242020,
+                    #0f0f0f
+                );
+
+            border: 1px solid #292929;
+            border-radius: 0 0 55px 55px;
+
+            box-shadow:
+                0 30px 100px rgba(0, 0, 0, .65);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            right: -150px;
+            top: 100px;
+
+            background: #ff6a00;
+            filter: blur(180px);
+            opacity: .07;
+        }
+
+
+        /* ==============================
+           HERO CONTENT
+        ============================== */
+
+        .hero-content {
+            position: absolute;
+
+            left: 8%;
+            top: 155px;
+
+            width: 55%;
+
+            z-index: 15;
+        }
+
+        .hello {
+            color: #ff6a00;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            margin-bottom: 18px;
+
+            animation: fadeUp .8s ease both;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 7vw, 90px);
+            line-height: .92;
+            letter-spacing: -5px;
+
+            animation: fadeUp 1s ease .1s both;
+        }
+
+        .hero h1 span {
+            color: #ff6a00;
+        }
+
+        .hero-description {
+            max-width: 600px;
+
+            margin-top: 28px;
+
+            color: #aaa;
+            font-size: 17px;
+            line-height: 1.7;
+
+            animation: fadeUp 1s ease .2s both;
+        }
+
+
+        /* ==============================
+           BUTTONS
+        ============================== */
+
+        .hero-buttons {
+            margin-top: 32px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 22px;
+
+            position: relative;
+            z-index: 25;
+
+            animation: fadeUp 1s ease .35s both;
+        }
+
+        .btn {
+            min-width: 175px;
+            height: 54px;
+
+            padding: 0 25px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 30px;
+            border: 1px solid #ff6a00;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            transition: .3s ease;
+        }
+
+        .btn-primary {
+            background: #ff6a00;
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 12px 30px rgba(255, 106, 0, .25);
+        }
+
+
+        /* ==============================
+           PROFILE PHOTO
+        ============================== */
+
+        .profile-image {
+            position: absolute;
+
+            right: 6%;
+            top: 100px;
+
+            width: 320px;
+            height: 420px;
+
+            object-fit: cover;
+            object-position: center top;
+
+            border-radius: 25px;
+
+            filter:
+                grayscale(100%)
+                brightness(.62)
+                contrast(1.15);
+
+            opacity: .95;
+
+            z-index: 8;
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, .55),
+                0 0 0 1px rgba(255, 255, 255, .08);
+
+            animation: photoIn 1.2s ease .4s both;
+
+            transition: .5s ease;
+        }
+
+        .profile-image:hover {
+            filter:
+                grayscale(20%)
+                brightness(.72)
+                contrast(1.1);
+
+            transform: translateY(-7px);
+        }
+
+        @keyframes photoIn {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            to {
+                opacity: .95;
+                transform: translateX(0);
+            }
+        }
+
+
+        /* ==============================
+           SERVICES
+        ============================== */
+
+        .services {
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 155px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            background: rgba(8, 8, 8, .97);
+
+            border-top: 1px solid #292929;
+
+            z-index: 20;
+        }
+
+        .service {
+            padding: 27px 25px;
+
+            border-right: 1px solid #292929;
+
+            transition: .3s;
+        }
+
+        .service:last-child {
+            border-right: none;
+        }
+
+        .service:hover {
+            background: #111;
+        }
+
+        .service i {
+            color: #ff6a00;
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .service p {
+            color: #777;
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           SECTIONS
+        ============================== */
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 110px 35px;
+        }
+
+        .section-label {
+            color: #ff6a00;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 50px;
+        }
+
+
+        /* ==============================
+           TECHNOLOGIES
+        ============================== */
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .tech-card {
+            position: relative;
+
+            padding: 30px 15px;
+
+            text-align: center;
+
+            background: #111;
+
+            border: 1px solid #292929;
+            border-radius: 18px;
+
+            transition: .35s;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-8px);
+            border-color: #ff6a00;
+        }
+
+        .tech-card i {
+            font-size: 45px;
+            margin-bottom: 18px;
+        }
+
+        .tech-card h3 {
+            font-size: 15px;
+            margin-bottom: 7px;
+        }
+
+        .tech-card p {
+            color: #666;
+            font-size: 11px;
+        }
+
+        .html {
+            color: #e34c26;
+        }
+
+        .css {
+            color: #1572b6;
+        }
+
+        .javascript {
+            color: #f7df1e;
+        }
+
+        .python {
+            color: #3776ab;
+        }
+
+        .c-language {
+            color: #659ad2;
+        }
+
+
+        /* ==============================
+           ABOUT
+        ============================== */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #999;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .about-box {
+            padding: 35px;
+
+            background: #111;
+
+            border: 1px solid #292929;
+            border-radius: 20px;
+        }
+
+        .about-box h3 {
+            color: #ff6a00;
+            margin-bottom: 20px;
+        }
+
+        .about-box ul {
+            list-style: none;
+        }
+
+        .about-box li {
+            padding: 13px 0;
+            color: #aaa;
+            border-bottom: 1px solid #222;
+        }
+
+        .about-box li:last-child {
+            border-bottom: none;
+        }
+
+        .about-box li i {
+            color: #ff6a00;
+            margin-right: 10px;
+        }
+
+
+        /* ==============================
+           PROJECTS
+        ============================== */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            min-height: 280px;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #151515,
+                    #0d0d0d
+                );
+
+            border: 1px solid #292929;
+            border-radius: 20px;
+
+            transition: .35s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            border-color: #ff6a00;
+        }
+
+        .project-number {
+            color: #ff6a00;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        .project h3 {
+            margin: 35px 0 15px;
+            font-size: 23px;
+        }
+
+        .project p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .project a {
+            display: inline-block;
+            margin-top: 22px;
+            color: #ff6a00;
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           CONTACT
+        ============================== */
+
+        .contact {
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 106, 0, .08),
+                    transparent 50%
+                );
+        }
+
+        .contact h2 {
+            font-size: 52px;
+            margin-bottom: 20px;
+        }
+
+        .contact-text {
+            max-width: 550px;
+            margin: auto;
+
+            color: #888;
+            line-height: 1.7;
+        }
+
+        .email {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: #ff6a00;
+            font-size: 18px;
+        }
+
+
+        /* ==============================
+           SOCIAL ICONS
+        ============================== */
+
+        .socials {
+            margin-top: 35px;
+
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .social {
+            width: 50px;
+            height: 50px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #292929;
+            border-radius: 50%;
+
+            color: #aaa;
+
+            font-size: 19px;
+
+            transition: .3s;
+        }
+
+        .social:hover {
+            color: #ff6a00;
+            border-color: #ff6a00;
+
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(255, 106, 0, .15);
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            max-width: 1100px;
+            margin: auto;
+
+            padding: 35px;
+
+            border-top: 1px solid #222;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: #555;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #ff6a00;
+        }
+
+
+        /* ==============================
+           ANIMATIONS
+        ============================== */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* ==============================
+           TABLET
+        ============================== */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                width: 94%;
+            }
+
+            .hero-content {
+                left: 6%;
+                width: 58%;
+            }
+
+            .profile-image {
+                right: 4%;
+                width: 280px;
+                height: 390px;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 700px) {
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+
+            /* HERO */
+
+            .hero {
+                width: 94%;
+                height: 820px;
+                border-radius: 0 0 35px 35px;
+            }
+
+            .hero-content {
+                left: 7%;
+                right: 7%;
+                top: 115px;
+                width: auto;
+            }
+
+            .hello {
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 52px;
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                margin-top: 20px;
+            }
+
+
+            /* BUTTONS */
+
+            .hero-buttons {
+                margin-top: 25px;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                min-width: 145px;
+                height: 48px;
+                padding: 0 18px;
+                font-size: 13px;
+            }
+
+
+            /* PHOTO */
+
+            .profile-image {
+                width: 190px;
+                height: 250px;
+
+                right: 50%;
+                top: 385px;
+
+                transform: translateX(50%);
+
+                border-radius: 18px;
+            }
+
+            .profile-image:hover {
+                transform: translateX(50%);
+            }
+
+
+            /* SERVICES */
+
+            .services {
+                height: 185px;
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .service {
+                padding: 18px 15px;
+            }
+
+            .service:nth-child(1),
+            .service:nth-child(2) {
+                border-bottom: 1px solid #292929;
+            }
+
+            .service:nth-child(2) {
+                border-right: none;
+            }
+
+            .service i {
+                font-size: 19px;
+                margin-bottom: 8px;
+            }
+
+            .service h3 {
+                font-size: 13px;
+            }
+
+            .service p {
+                font-size: 10px;
+            }
+
+
+            /* SECTIONS */
+
+            .section {
+                padding: 80px 20px;
+            }
+
+            .section-title {
+                font-size: 37px;
+            }
+
+
+            /* TECHNOLOGIES */
+
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .tech-card {
+                padding: 25px 10px;
+            }
+
+            .tech-card i {
+                font-size: 38px;
+            }
+
+
+            /* ABOUT */
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+
+            /* PROJECTS */
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+
+            /* CONTACT */
+
+            .contact h2 {
+                font-size: 40px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+        }
+
+
+        /* ==============================
+           SMALL PHONES
+        ============================== */
+
+        @media (max-width: 430px) {
+
+            .hero {
+                height: 830px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .profile-image {
+                top: 390px;
+                width: 175px;
+                height: 230px;
+            }
+
+            .hero-buttons {
+                gap: 10px;
+            }
+
+            .btn {
+                min-width: 135px;
+            }
+
+            .services {
+                height: 190px;
+            }
+
+            .tech-grid {
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         STARS
+    ============================== -->
+
+    <div class="stars">
+
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+
+    </div>
+
+    <div class="shooting-star"></div>
+
+
+    <!-- ==============================
+         NAVBAR
+    ============================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <div class="logo">
+                ABHIJEET <span>BOKADE</span>
+            </div>
+
+            <div class="nav-links">
+
+                <a href="#home">Home</a>
+                <a href="#technologies">Skills</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==============================
+         HERO
+    ============================== -->
+
+    <section class="hero" id="home">
+
+
+        <!-- HERO TEXT -->
+
+        <div class="hero-content">
+
+            <div class="hello">
+                HELLO, I'M
+            </div>
+
+            <h1>
+                Abhijeet<br>
+                <span>Bokade</span>
+            </h1>
+
+            <p class="hero-description">
+                Engineering Student & Technology Enthusiast.
+                Interested in programming, web development
+                and innovative engineering projects.
+            </p>
+
+
+            <!-- BUTTONS -->
+
+            <div class="hero-buttons">
+
+                <a href="#projects"
+                   class="btn btn-primary">
+                    View Projects
+                </a>
+
+                <a href="#contact"
+                   class="btn btn-secondary">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE PHOTO -->
+
+        <img
+            src="profile.jpg"
+            alt="Abhijeet Bokade"
+            class="profile-image"
+        >
+
+
+        <!-- ==============================
+             SERVICES
+        ============================== -->
+
+        <div class="services">
+
+
+            <div class="service">
+
+                <i class="fa-solid fa-code"></i>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Modern responsive websites
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <i class="fa-solid fa-terminal"></i>
+
+                <h3>
+                    Programming
+                </h3>
+
+                <p>
+                    C, Python & JavaScript
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <i class="fa-solid fa-pen-ruler"></i>
+
+                <h3>
+                    UI/UX Design
+                </h3>
+
+                <p>
+                    Clean and simple interfaces
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <i class="fa-solid fa-microchip"></i>
+
+                <h3>
+                    Engineering Projects
+                </h3>
+
+                <p>
+                    Arduino & innovative ideas
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         TECHNOLOGIES
+    ============================== -->
+
+    <section class="section" id="technologies">
+
+        <div class="section-label">
+            WHAT I'M LEARNING
+        </div>
+
+        <h2 class="section-title">
+            Technologies
+        </h2>
+
+
+        <div class="tech-grid">
+
+
+            <div class="tech-card">
+
+                <i class="devicon-html5-plain html"></i>
+
+                <h3>
+                    HTML5
+                </h3>
+
+                <p>
+                    Web Structure
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <i class="devicon-css3-plain css"></i>
+
+                <h3>
+                    CSS3
+                </h3>
+
+                <p>
+                    Web Styling
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <i class="devicon-javascript-plain javascript"></i>
+
+                <h3>
+                    JavaScript
+                </h3>
+
+                <p>
+                    Web Development
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <i class="devicon-python-plain python"></i>
+
+                <h3>
+                    Python
+                </h3>
+
+                <p>
+                    Programming
+                </p>
+
+            </div>
+
+
+            <div class="tech-card">
+
+                <i class="devicon-c-plain c-language"></i>
+
+                <h3>
+                    C
+                </h3>
+
+                <p>
+                    Programming
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         ABOUT
+    ============================== -->
+
+    <section class="section" id="about">
+
+        <div class="section-label">
+            ABOUT ME
+        </div>
+
+
+        <div class="about">
+
+
+            <div class="about-text">
+
+                <h2 class="section-title">
+                    Learning.<br>
+                    Building.<br>
+                    Growing.
+                </h2>
+
+                <p>
+                    I am an engineering student interested
+                    in technology, programming and software
+                    development.
+                </p>
+
+                <p>
+                    I enjoy learning new technologies,
+                    creating websites and working on
+                    engineering projects that combine
+                    hardware and software.
+                </p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <h3>
+                    My Focus
+                </h3>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Web Development
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Programming
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Arduino Projects
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        UI/UX Design
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Learning New Technologies
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         PROJECTS
+    ============================== -->
+
+    <section class="section" id="projects">
+
+        <div class="section-label">
+            MY WORK
+        </div>
+
+        <h2 class="section-title">
+            Featured Projects
+        </h2>
+
+
+        <div class="projects">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project">
+
+                <div class="project-number">
+                    01 / ARDUINO
+                </div>
+
+                <h3>
+                    Smart Soil Moisture
+                </h3>
+
+                <p>
+                    Arduino-based soil monitoring system
+                    designed to measure soil moisture and
+                    support efficient irrigation.
+                </p>
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project">
+
+                <div class="project-number">
+                    02 / ARDUINO
+                </div>
+
+                <h3>
+                    Smart Blind Stick
+                </h3>
+
+                <p>
+                    Arduino-based assistive project using
+                    sensors to detect obstacles and provide
+                    alerts.
+                </p>
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project">
+
+                <div class="project-number">
+                    03 / IOT
+                </div>
+
+                <h3>
+                    Smart Parking System
+                </h3>
+
+                <p>
+                    Smart parking concept using sensors
+                    to monitor parking spaces and improve
+                    parking management.
+                </p>
+
+                <a href="#">
+                    View Project →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         CONTACT
+    ============================== -->
+
+    <section class="section contact" id="contact">
+
+        <div class="section-label">
+            GET IN TOUCH
+        </div>
+
+        <h2>
+            Let's Connect.
+        </h2>
+
+        <p class="contact-text">
+            Interested in technology, programming or
+            engineering projects? Feel free to connect
+            with me.
+        </p>
+
+
+        <a
+            href="mailto:abhijitbokade2912@gmail.com"
+            class="email"
+        >
+            abhijitbokade2912@gmail.com
+        </a>
+
+
+        <!-- SOCIAL MEDIA -->
+
+        <div class="socials">
+
+
+            <!-- Instagram -->
+
+            <a
+                href="https://instagram.com/"
+                target="_blank"
+                class="social"
+                title="Instagram"
+            >
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+
+
+            <!-- Discord -->
+
+            <a
+                href="#"
+                class="social"
+                title="Discord"
+            >
+                <i class="fa-brands fa-discord"></i>
+            </a>
+
+
+            <!-- GitHub -->
+
+            <a
+                href="https://github.com/"
+                target="_blank"
+                class="social"
+                title="GitHub"
+            >
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+
+            <!-- LinkedIn -->
+
+            <a
+                href="https://linkedin.com/"
+                target="_blank"
+                class="social"
+                title="LinkedIn"
+            >
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+
+            <!-- Email -->
+
+            <a
+                href="mailto:abhijitbokade2912@gmail.com"
+                class="social"
+                title="Email"
+            >
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+        <div>
+            © 2026
+            <span>Abhijeet Bokade</span>
+        </div>
+
+        <div>
+            Engineering Student
+        </div>
+
+    </footer>
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <script>
+
+
+        /* =========================
+           SHOOTING STAR
+        ========================= */
+
+        const shootingStar =
+            document.querySelector(".shooting-star");
+
+        function createShootingStar() {
+
+            shootingStar.classList.remove("active");
+
+            void shootingStar.offsetWidth;
+
+            shootingStar.classList.add("active");
+        }
+
+        setTimeout(createShootingStar, 2000);
+
+        setInterval(createShootingStar, 5000);
+
+
+        /* =========================
+           PHOTO PARALLAX
+        ========================= */
+
+        const photo =
+            document.querySelector(".profile-image");
+
+        window.addEventListener("mousemove", function(event) {
+
+            if (window.innerWidth > 900) {
+
+                const x =
+                    (window.innerWidth / 2 - event.clientX) * 0.012;
+
+                const y =
+                    (window.innerHeight / 2 - event.clientY) * 0.008;
+
+                photo.style.transform =
+                    `translate(${x}px, ${y}px)`;
+            }
+
+        });
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".tech-card, .project, .about-box"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.style.opacity = "1";
+
+                            entry.target.style.transform =
+                                "translateY(0)";
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        revealElements.forEach(function(element) {
+
+            element.style.opacity = "0";
+
+            element.style.transform =
+                "translateY(30px)";
+
+            element.style.transition =
+                "opacity .7s ease, transform .7s ease";
+
+            observer.observe(element);
+
+        });
+
+    </script>
+
+</body>
+</html>
